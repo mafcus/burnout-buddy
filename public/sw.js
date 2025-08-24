@@ -1,6 +1,6 @@
 // --- Burnout Buddy service worker (simple offline cache) ---
 // public/sw.js
-const CACHE = "bbuddy-v4"; // bump this to force updates  v3 -> v4
+const CACHE = "bbuddy-v5";
 const APP_SHELL = ["/", "/index.html", "/manifest.webmanifest"];
 
 // Install: pre-cache basic shell

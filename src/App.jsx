@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-
+import "./App.css";
 export default function App() {
   const todayISO = new Date().toISOString().slice(0, 10);
   const [selectedDate, setSelectedDate] = useState(todayISO);
@@ -347,4 +347,5 @@ function todayISO() {
 }
 <div style={{position:"fixed", right:8, bottom:8, opacity:.6, fontSize:12}}>
   v4
+  <div id="bb-version-badge">v5</div>
 </div>

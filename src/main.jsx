@@ -12,7 +12,7 @@ root.render(
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/sw.js?bbuddy=v4") // <— bump this with the same v4
+      .register("/sw.js?bbuddy=v5") // <— bump this with the same v5
       .catch((err) => console.error("SW register failed", err));
   });
 }
