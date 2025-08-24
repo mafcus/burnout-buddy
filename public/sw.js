@@ -1,5 +1,5 @@
 // --- Burnout Buddy service worker (simple offline cache) ---
-const CACHE = "bbuddy-v1";
+const CACHE = "bbuddy-v3"; // bump this when you want to invalidate old cache
 const APP_SHELL = ["/", "/index.html", "/manifest.webmanifest"];
 
 // Install: pre-cache basic shell
@@ -51,4 +51,17 @@ self.addEventListener("fetch", (e) => {
         })
     )
   );
+});
+self.addEventListener("install", (e) => {
+  self.skipWaiting();
+  e.waitUntil(caches.open(CACHE));
+});
+
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.map(k => (k !== CACHE ? caches.delete(k) : undefined)))
+    )
+  );
+  self.clients.claim();
 });
