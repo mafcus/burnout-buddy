@@ -63,3 +63,21 @@ body {
   padding-right: env(safe-area-inset-right);
   padding-top: env(safe-area-inset-top);
 }
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.form-row textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

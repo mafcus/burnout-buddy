@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import "./App.css";
+import "./App.css"
 export default function App() {
   const todayISO = new Date().toISOString().slice(0, 10);
   const [selectedDate, setSelectedDate] = useState(todayISO);
@@ -164,23 +164,25 @@ export default function App() {
                 />
               </div>
 
-              <label className="label mt-4">Evening Win</label>
-              <textarea
-                className="textarea"
-                rows={3}
-                placeholder="What went well today?"
-                value={day.eveningWin}
-                onChange={(e) => updateDay({ eveningWin: e.target.value })}
-              />
+              <div className="form-row mt-4">
+  <label>Evening Win</label>
+  <textarea
+    className="textarea"
+    rows={3}
+    placeholder="What went well today?"
+    value={day.eveningWin}
+    onChange={(e) => updateDay({ eveningWin: e.target.value })}
+  />
+</div>
 
-              <div className="mt-3 flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={day.kidTime}
-                  onChange={(e) => updateDay({ kidTime: e.target.checked })}
-                />
-                <span className="text-sm">Kid-time / connection done</span>
-              </div>
+<div className="form-row mt-3 flex items-center gap-2">
+  <input
+    type="checkbox"
+    checked={day.kidTime}
+    onChange={(e) => updateDay({ kidTime: e.target.checked })}
+  />
+  <span className="text-sm">Kid-time / connection done</span>
+</div>
             </div>
           </div>
 
