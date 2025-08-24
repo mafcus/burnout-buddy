@@ -345,3 +345,6 @@ function downloadFile(filename, content, mime) {
 function todayISO() {
   return new Date().toISOString().slice(0, 10);
 }
+<div style={{position:"fixed", right:8, bottom:8, opacity:.6, fontSize:12}}>
+  v4
+</div>

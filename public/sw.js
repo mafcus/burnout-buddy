@@ -1,5 +1,6 @@
 // --- Burnout Buddy service worker (simple offline cache) ---
-const CACHE = "bbuddy-v3"; // bump this when you want to invalidate old cache
+// public/sw.js
+const CACHE = "bbuddy-v4"; // bump this to force updates  v3 -> v4
 const APP_SHELL = ["/", "/index.html", "/manifest.webmanifest"];
 
 // Install: pre-cache basic shell
@@ -53,8 +54,8 @@ self.addEventListener("fetch", (e) => {
   );
 });
 self.addEventListener("install", (e) => {
-  self.skipWaiting();
-  e.waitUntil(caches.open(CACHE));
+  self.skipWaiting();                // take over immediately
+  e.waitUntil(caches.open(CACHE));   // create/open the new cache
 });
 
 self.addEventListener("activate", (e) => {
@@ -63,5 +64,7 @@ self.addEventListener("activate", (e) => {
       Promise.all(keys.map(k => (k !== CACHE ? caches.delete(k) : undefined)))
     )
   );
-  self.clients.claim();
+  self.clients.claim();              // claim all open pages/tabs
 });
+
+// (keep any fetch handler you already had; if none, this is enough to bust old caches)
