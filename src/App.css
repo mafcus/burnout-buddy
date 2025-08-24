@@ -81,3 +81,24 @@ body {
   border-radius: 6px;
   border: 1px solid #ccc;
 }
+/* Remove list styling */
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* Optional spacing for each Must-Do input */
+ul li {
+  margin-bottom: 0.5rem;
+}
+.week-day {
+  display: inline-block;
+  padding: 0.75rem 1rem;      /* bigger tap target */
+  font-size: 1rem;            /* larger text */
+  margin: 0.25rem;
+  border-radius: 8px;
+  background: #e0e0e0;        /* or your preferred color */
+  min-width: 80px;            /* ensures consistent size */
+  text-align: center;
+}
